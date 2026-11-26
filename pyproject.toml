@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llama-mate"
+dynamic = ["version"]
+description = "A Gradio playground that teaches every field of the OpenAI Chat Completions request."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "gradio>=6,<7",
+    "requests",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+llama-mate = "llama_mate.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ihawke/llama-mate"
+
+[tool.hatch.version]
+path = "src/llama_mate/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llama_mate"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
