@@ -8,15 +8,18 @@ request format used by OpenAI, Ollama, vLLM, LM Studio, llama.cpp and many other
 You change a control, you see the request JSON change, you press **Send**, and you read the
 response right next to it. Every control explains what its field does.
 
-```
-┌───────────────────────────────────────────────────────────────┐
-│ 1. Core │ 2. Sampling │ 3. Penalties │ 4. Streaming │ ...     │  ← one tab per topic
-│   controls, each with an explanation and a "Send …" checkbox  │
-├──────────────────────────────┬────────────────────────────────┤
-│ Request JSON (live, editable)│ Response: answer, finish_reason│
-│ [Send]                       │ tool calls, usage, raw SSE     │
-└──────────────────────────────┴────────────────────────────────┘
-```
+The tabs are at the top. Each control has a short explanation, and optional fields have a
+**Send** checkbox:
+
+![The Core tab: model, system and user messages, each with an explanation](docs/images/core-tab-a.png)
+
+At the bottom, the live request JSON sits next to the response. Press **Send** to post it:
+
+![The request JSON next to the response panel, with the Send button](docs/images/core-tab-b.png)
+
+Ticking a **Send** box adds that field to the JSON. Here is the Penalties tab:
+
+![The Penalties tab: presence_penalty, frequency_penalty and logit_bias, each with a Send checkbox](docs/images/penalties-tab.png)
 
 ## What you will learn
 
@@ -47,17 +50,12 @@ python3 --version
 We recommend a virtual environment, so llama-mate does not mix with your other projects:
 
 ```bash
+mkdir llama-mate
+cd llama-mate
 python3 -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
+
 pip install git+https://github.com/ihawke/llama-mate
-```
-
-### Install a specific version
-
-Your instructor may ask everyone to use the same version. Add `@` and the tag:
-
-```bash
-pip install git+https://github.com/ihawke/llama-mate@v0.1.0
 ```
 
 To upgrade later to the newest version:
